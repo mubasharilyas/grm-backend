@@ -6,7 +6,7 @@ dotenv.config();
 mongoose.Promise = global.Promise;
 global.mongoose = mongoose
 export function connectDB() {
-  mongoose.connect('mongodb+srv://Aftab-Taabi:<PASSWORD>@cluster0.2m6pczo.mongodb.net/?retryWrites=true&w=majority'.replace('<PASSWORD>', 'MongoDB.'), {
+  mongoose.connect('mongodb+srv://Aftab-Taabi:<PASSWORD>@cluster0.2m6pczo.mongodb.net/?retryWrites=true&w=majority'.replace('<PASSWORD>',process.env.DB_PASSWORD), {
 
   }).then(() => console.log("DB connection established!")).catch(err => console.log(err))
 }

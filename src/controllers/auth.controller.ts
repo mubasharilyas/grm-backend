@@ -52,7 +52,9 @@ export async function register(req: Request, res: Response) {
     try {
         const user = new User({
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            username:req.body.userName,
+            gender:req.body.gender
         })
         const result = await user.save();
         res.send(result);

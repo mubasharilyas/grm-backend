@@ -15,6 +15,9 @@ app.use(express.json());
 
 app.use(cors());
 
+app.use('/',(req,res)=>{
+    res.send("Hello from SERVER!");
+})
 app.use('/auth', authRoutes.router);
 app.use('/contact', contactRoutes.router);
 app.use('/alert', alertRoutes.router);
