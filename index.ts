@@ -8,6 +8,7 @@ connectDB()
 import * as alertRoutes from './src/routes/alert.route'
 import * as contactRoutes from './src/routes/contact.route'
 import * as authRoutes from './src/routes/auth.route'
+import * as helloRoutes from './src/routes/hello.route'
 
 
 import cors from 'cors';
@@ -15,9 +16,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use('/hello',(req,res)=>{
-    res.send("Hello from SERVER!");
-})
+app.use('/hello',helloRoutes.router)
 app.use('/auth', authRoutes.router);
 app.use('/contact', contactRoutes.router);
 app.use('/alert', alertRoutes.router);
