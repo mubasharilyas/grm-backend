@@ -2,6 +2,7 @@
 
 
 import mongoose from 'mongoose';
+// import { db } from '../config/database'
 const alertSchema = new mongoose.Schema({
       errorId: String,
       errorSeverity: String,
@@ -14,4 +15,4 @@ const alertSchema = new mongoose.Schema({
       expanded: Boolean
 })
 
-export const Alert = mongoose.model('Alert',alertSchema);
+export const Alert = mongoose.model('Alert', alertSchema);

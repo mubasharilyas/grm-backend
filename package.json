@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "ts-node index.ts"
+    "start": "ts-node index.ts"
   },
   "keywords": [],
   "author": "",
