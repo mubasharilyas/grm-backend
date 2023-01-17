@@ -5,7 +5,7 @@ import { Request, Response } from 'express'
 
 export async function hello(req: Request, res: Response) {
     try {
-        res.json({message:"Hello from Server!"});
+        res.json({message:"Hello from Server! v2"});
 
     }
     catch (err) {
