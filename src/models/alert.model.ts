@@ -2,7 +2,6 @@
 
 
 import mongoose from 'mongoose';
-// import { db } from '../config/database'
 const alertSchema = new mongoose.Schema({
       errorId: String,
       errorSeverity: String,

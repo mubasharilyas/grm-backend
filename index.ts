@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 const app = express();
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -8,7 +8,6 @@ connectDB()
 import * as alertRoutes from './src/routes/alert.route'
 import * as contactRoutes from './src/routes/contact.route'
 import * as authRoutes from './src/routes/auth.route'
-import * as helloRoutes from './src/routes/hello.route'
 
 
 import cors from 'cors';
@@ -16,7 +15,19 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use('/hello',helloRoutes.router)
+app.get('/', function (req: Request, res: Response) {
+
+    try {
+        return res.json({ message: "Hello from Server! v2" });
+
+    }
+    catch (err) {
+        res.json({ errorMessage: "Something has gone wrong on the server" });
+    }
+
+
+
+})
 app.use('/auth', authRoutes.router);
 app.use('/contact', contactRoutes.router);
 app.use('/alert', alertRoutes.router);
