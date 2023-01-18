@@ -50,15 +50,20 @@ export async function login(req: Request, res: Response) {
 
 export async function register(req: Request, res: Response) {
     try {
-        const user = new User({
-            email: req.body.email,
-            password: req.body.password,
-            username:req.body.userName,
-            gender:req.body.gender
-        })
-        const result = await user.save();
-        res.send(result);
+        let existantUser = await User.findOne({ email: req.body.email })
+        if (existantUser) {
+            res.json({ errorMessage: "User already exist" });
 
+        } else {
+            const user = new User({
+                email: req.body.email,
+                password: req.body.password,
+                username: req.body.userName,
+                gender: req.body.gender
+            })
+            const result = await user.save();
+            res.send(result);
+        }
     }
     catch (err) {
         res.json({ errorMessage: "Something has gone wrong on the server" });
